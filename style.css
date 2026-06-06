@@ -1,8 +1,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* BACKGROUND */
@@ -13,22 +13,9 @@ body {
     color: white;
 }
 
-/* GLOW */
-body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 300px;
-    background: radial-gradient(circle, rgba(124,58,237,0.3), transparent);
-    top: -50px;
-    z-index: -1;
-}
-
 /* HERO */
 .hero {
-    width: 100%;
     height: 240px;
-    position: relative;
     overflow: hidden;
 }
 
@@ -36,72 +23,32 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.85;
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(11,18,43,0.2),
-        rgba(11,18,43,0.9)
-    );
-}
-
-/* ========================= */
-/* FOTO STATS & PROSES FIX  */
-/* ========================= */
-.photo-box {
+/* FOTO SECTION (FITUR & PROSES) */
+.section-image {
     margin: 15px;
-    height: 180px;
-    border-radius: 18px;
-    position: relative;
+    border-radius: 20px;
     overflow: hidden;
 
     border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 0 25px rgba(59,130,246,0.2);
-
-    transition: 0.3s;
+    box-shadow: 0 0 30px rgba(59,130,246,0.25);
 }
 
-/* GAMBAR (INI YANG PENTING 🔥) */
-.photo-box img {
+.section-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* biar ga gepeng & ga aneh */
     display: block;
-}
-
-/* OVERLAY BIAR ELEGAN (SUDAH DIPERINGAN) */
-.photo-box::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 18px;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(11,18,43,0.05),
-        rgba(11,18,43,0.3)
-    );
-}
-
-/* HOVER EFFECT */
-.photo-box:hover {
-    transform: scale(1.02);
+    object-fit: cover;
 }
 
 /* FORM */
 .form-box {
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.08);
     margin: 20px;
     padding: 18px;
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(59,130,246,0.15);
 }
 
 /* INPUT */
@@ -112,34 +59,19 @@ body::before {
     padding: 10px;
     border-radius: 12px;
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: 0.2s;
 }
 
-.input-box:focus-within {
-    border: 1px solid #3b82f6;
-    box-shadow: 0 0 10px rgba(59,130,246,0.5);
-}
-
-/* ICON */
 .input-box img {
     width: 20px;
     margin-right: 10px;
-    opacity: 0.8;
 }
 
-/* INPUT */
 input, select {
     width: 100%;
     border: none;
     outline: none;
     background: none;
     color: #e5e7eb;
-    font-size: 14px;
-}
-
-input::placeholder {
-    color: #94a3b8;
 }
 
 /* BUTTON */
@@ -150,31 +82,15 @@ input::placeholder {
     border-radius: 12px;
     border: none;
     font-weight: 600;
-    font-size: 14px;
     color: white;
     cursor: pointer;
 
     background: linear-gradient(135deg, #3b82f6, #7c3aed);
     box-shadow: 0 0 25px rgba(124,58,237,0.6);
-
-    transition: 0.25s;
-}
-
-.submit:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 35px rgba(124,58,237,0.9);
-}
-
-.submit:active {
-    transform: scale(0.97);
 }
 
 /* MOBILE */
 @media (max-width: 480px) {
-    .photo-box {
-        height: 140px;
-    }
-
     .hero {
         height: 200px;
     }
