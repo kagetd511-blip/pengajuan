@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* BACKGROUND UTAMA */
+/* BACKGROUND */
 body {
     background: radial-gradient(circle at top right, #1e3a8a, transparent),
                 radial-gradient(circle at top left, #7c3aed, transparent),
@@ -13,7 +13,7 @@ body {
     color: white;
 }
 
-/* GLOW ATMOSPHERE */
+/* GLOW */
 body::before {
     content: "";
     position: fixed;
@@ -39,7 +39,6 @@ body::before {
     opacity: 0.85;
 }
 
-/* OVERLAY HERO */
 .hero::after {
     content: "";
     position: absolute;
@@ -68,23 +67,48 @@ body::before {
     color: #cbd5e1;
 }
 
-/* BOX FOTO (STATS & PROSES) */
+/* ========================= */
+/* FOTO STATS & PROSES FIX  */
+/* ========================= */
 .photo-box {
     margin: 15px;
     height: 140px;
     border-radius: 18px;
-    background: linear-gradient(
-        145deg,
-        rgba(59,130,246,0.15),
-        rgba(124,58,237,0.15)
-    );
+    position: relative;
+    overflow: hidden;
+
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 0 25px rgba(59,130,246,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #cbd5e1;
-    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+/* GAMBAR MASUK SINI */
+.stats {
+    background: url('img/stats.jpg') center/cover no-repeat;
+}
+
+.proses {
+    background: url('img/proses.jpg') center/cover no-repeat;
+}
+
+/* OVERLAY BIAR GELAP & ELEGAN */
+.photo-box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(11,18,43,0.1),
+        rgba(11,18,43,0.7)
+    );
+}
+
+/* HOVER EFFECT */
+.photo-box:hover {
+    transform: scale(1.02);
 }
 
 /* FORM */
@@ -122,7 +146,7 @@ body::before {
     opacity: 0.8;
 }
 
-/* INPUT FIELD */
+/* INPUT */
 input, select {
     width: 100%;
     border: none;
@@ -132,7 +156,6 @@ input, select {
     font-size: 14px;
 }
 
-/* PLACEHOLDER */
 input::placeholder {
     color: #94a3b8;
 }
@@ -164,7 +187,7 @@ input::placeholder {
     transform: scale(0.97);
 }
 
-/* MOBILE OPTIMIZE */
+/* MOBILE */
 @media (max-width: 480px) {
     .judul h2 {
         font-size: 18px;
