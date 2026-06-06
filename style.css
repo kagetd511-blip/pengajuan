@@ -50,29 +50,12 @@ body::before {
     );
 }
 
-/* JUDUL */
-.judul {
-    padding: 20px;
-}
-
-.judul h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.judul p {
-    font-size: 13px;
-    margin-top: 6px;
-    color: #cbd5e1;
-}
-
 /* ========================= */
 /* FOTO STATS & PROSES FIX  */
 /* ========================= */
 .photo-box {
     margin: 15px;
-    height: 140px;
+    height: 180px;
     border-radius: 18px;
     position: relative;
     overflow: hidden;
@@ -83,16 +66,15 @@ body::before {
     transition: 0.3s;
 }
 
-/* GAMBAR MASUK SINI */
-.stats {
-    background: url('img/stats.jpg') center/cover no-repeat;
+/* GAMBAR (INI YANG PENTING 🔥) */
+.photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* biar ga gepeng & ga aneh */
+    display: block;
 }
 
-.proses {
-    background: url('img/proses.jpg') center/cover no-repeat;
-}
-
-/* OVERLAY BIAR GELAP & ELEGAN */
+/* OVERLAY BIAR ELEGAN (SUDAH DIPERINGAN) */
 .photo-box::after {
     content: "";
     position: absolute;
@@ -101,8 +83,8 @@ body::before {
 
     background: linear-gradient(
         to bottom,
-        rgba(11,18,43,0.1),
-        rgba(11,18,43,0.7)
+        rgba(11,18,43,0.05),
+        rgba(11,18,43,0.3)
     );
 }
 
@@ -189,11 +171,11 @@ input::placeholder {
 
 /* MOBILE */
 @media (max-width: 480px) {
-    .judul h2 {
-        font-size: 18px;
+    .photo-box {
+        height: 140px;
     }
 
-    .photo-box {
-        height: 120px;
+    .hero {
+        height: 200px;
     }
 }
