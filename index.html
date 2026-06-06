@@ -3,199 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pengembalian Pinjaman Online</title>
+<title>PinjamanCare</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: #f4f7fb;
-}
-
-/* HERO */
-.hero {
-    padding: 25px;
-    background: linear-gradient(135deg, #2b6cff, #00c6ff);
-    color: white;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
-
-.logo {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: 22px;
-}
-
-.hero p {
-    font-size: 13px;
-    margin-top: 10px;
-    opacity: 0.9;
-}
-
-.cta {
-    margin-top: 20px;
-}
-
-.cta button {
-    width: 100%;
-    padding: 14px;
-    border-radius: 15px;
-    border: none;
-    background: white;
-    color: #2b6cff;
-    font-weight: bold;
-}
-
-/* FITUR */
-.features {
-    padding: 20px;
-}
-
-.feature-box {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    background: white;
-    padding: 12px;
-    border-radius: 15px;
-}
-
-.icon {
-    font-size: 18px;
-}
-
-/* SECTION */
-.section {
-    padding: 20px;
-}
-
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-/* FORM */
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-}
-
-.submit {
-    margin-top: 15px;
-    background: linear-gradient(135deg, #2b6cff, #00c6ff);
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    width: 100%;
-}
-
-/* WA */
-.wa {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <!-- HERO -->
 <div class="hero">
-    <div class="logo">PinjamanCare</div>
-
-    <h1>Kembalikan & Batalkan Pinjaman Online dengan Mudah</h1>
-    <p>Layanan panduan pengembalian dana pinjaman yang sudah dicairkan dari berbagai aplikasi pinjol secara cepat dan aman.</p>
-
-    <div class="cta">
-        <button onclick="scrollForm()">Mulai Pengajuan</button>
-    </div>
+    <img src="img/hero.jpg">
 </div>
 
-<!-- FITUR -->
-<div class="features">
-    <div class="feature-box">
-        <div class="icon">🔒</div>
-        <div>Proses Aman & Terpercaya</div>
-    </div>
+<!-- JUDUL -->
+<div class="judul">
+    <h2>Kembalikan Pinjaman Berbagai Aplikasi</h2>
+    <p>Layanan pengembalian & pembatalan saldo pinjaman online secara cepat, aman, dan terpercaya.</p>
+</div>
 
-    <div class="feature-box">
-        <div class="icon">⚡</div>
-        <div>Respon Cepat & Mudah</div>
-    </div>
+<!-- STATS (1 GAMBAR FULL) -->
+<div class="full-img">
+    <img src="img/stats-full.png">
+</div>
 
-    <div class="feature-box">
-        <div class="icon">📱</div>
-        <div>Bisa dari Semua Aplikasi Pinjol</div>
-    </div>
+<!-- PROSES (1 GAMBAR FULL) -->
+<div class="full-img">
+    <img src="img/proses-full.png">
 </div>
 
 <!-- FORM -->
-<div class="section" id="form">
-    <div class="card">
-        <h3>Form Pengajuan</h3>
+<div class="form-box" id="form">
+    <h3>Form Pengajuan</h3>
 
+    <div class="input-box">
+        <img src="img/icon-app.png">
         <select id="app">
             <option>Pilih Aplikasi Pinjol</option>
             <option>Shopee</option>
             <option>Kredivo</option>
             <option>Akulaku</option>
-            <option>Home Credit</option>
         </select>
-
-        <input type="text" id="nama" placeholder="Nama Lengkap">
-        <input type="number" id="hp" placeholder="Nomor WhatsApp">
-        <input type="text" id="jumlah" placeholder="Total Pinjaman">
-        <input type="text" id="tenor" placeholder="Jangka Waktu (Tenor)">
-
-        <button class="submit" onclick="kirimWA()">Ajukan Sekarang</button>
-
-        <p style="font-size:12px; margin-top:10px; color:#666;">
-        Data Anda bersifat rahasia dan aman
-        </p>
     </div>
+
+    <div class="input-box">
+        <img src="img/icon-user.png">
+        <input id="nama" placeholder="Nama Lengkap">
+    </div>
+
+    <div class="input-box">
+        <img src="img/icon-wa.png">
+        <input id="hp" placeholder="Nomor WhatsApp">
+    </div>
+
+    <div class="input-box">
+        <img src="img/icon-rp.png">
+        <input id="jumlah" placeholder="Total Pinjaman">
+    </div>
+
+    <div class="input-box">
+        <img src="img/icon-calendar.png">
+        <input id="tenor" placeholder="Jangka Waktu">
+    </div>
+
+    <button class="submit" onclick="kirimWA()">Ajukan Sekarang</button>
 </div>
 
-<!-- WA -->
-<div class="wa" onclick="kirimWA()">💬</div>
-
-<script>
-function scrollForm() {
-    document.getElementById("form").scrollIntoView({behavior: "smooth"});
-}
-
-function kirimWA() {
-    let app = document.getElementById("app").value;
-    let nama = document.getElementById("nama").value;
-    let hp = document.getElementById("hp").value;
-    let jumlah = document.getElementById("jumlah").value;
-    let tenor = document.getElementById("tenor").value;
-
-    let pesan = `Halo, saya ingin pengajuan pembatalan pinjaman:\n\nAplikasi: ${app}\nNama: ${nama}\nNo HP: ${hp}\nJumlah: ${jumlah}\nTenor: ${tenor}`;
-
-    let nomor = "6281234567890";
-    window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`);
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
