@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+/* HERO */
+.hero {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* JUDUL */
+.judul {
+    padding: 20px;
+}
+
+.judul h2 {
+    font-size: 18px;
+}
+
+.judul p {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* FULL IMAGE (STATS & PROSES) */
+.full-img {
+    padding: 10px 15px;
+}
+
+.full-img img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* FORM */
+.form-box {
+    background: #fff;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-box h3 {
+    margin-bottom: 10px;
+}
+
+/* INPUT */
+.input-box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.input-box img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+input, select {
+    border: none;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 14px;
+}
+
+/* BUTTON */
+.submit {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background: #2b6cff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+}
