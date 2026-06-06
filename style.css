@@ -14,15 +14,14 @@ body {
 }
 
 /* HERO */
+/* HERO */
 .hero {
-    height: 240px;
-    overflow: hidden;
-}
+    height: 300px;
+    margin: 15px;
+    border-radius:20px;
 
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background: url('img/hero.jpg') center/
+    cover no-repeat;
 }
 
 /* FOTO SECTION (FITUR & PROSES) */
