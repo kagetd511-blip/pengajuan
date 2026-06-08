@@ -47,7 +47,7 @@ body {
 /* PROSES */
 .proses {
     width: 100%;
-    height: 220px; /* 🔥 gampang diatur */
+    height: 200px; /* 🔥 gampang diatur */
     border-radius: 10px;
     overflow: hidden;
 }  
