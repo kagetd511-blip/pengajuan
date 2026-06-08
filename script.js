@@ -30,7 +30,7 @@ No WA: ${hp}
 Total Pinjaman: ${jumlah}
 Jangka Waktu: ${tenor}`;
 
-    window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(pesan)}`);
+    window.open(`https://wa.me/6283125043684?text=${encodeURIComponent(pesan)}`);
 }
 
 /* TUTUP DROPDOWN */
