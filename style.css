@@ -14,11 +14,43 @@ body {
 /* HERO */
 .hero {
     width: 100%;
-    height: 260px; /* 🔥 gampang diatur */
+    height: 300px; /* 🔥 gampang diatur */
     overflow: hidden;
 }  
 
 .hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* STATS */
+.stats {
+    width: 100%;
+    height: 85px; /* 🔥 gampang diatur */
+    border-radius: 10px;
+    overflow: hidden;
+}  
+
+.stats img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* PROSES */
+.proses {
+    width: 100%;
+    height: 125px; /* 🔥 gampang diatur */
+    border-radius: 10px;
+    overflow: hidden;
+}  
+
+.proses img{
   width: 100%;
   height: 100%;
   object-fit: cover;
