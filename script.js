@@ -22,7 +22,7 @@ function kirimWA() {
     let jumlah = document.getElementById("jumlah").value;
     let tenor = document.getElementById("tenor").value;
 
-    let pesan = `Halo, saya ingin pengajuan:
+    let pesan = `Halo, saya ingin pengajuan pengembalian/pembatalan pinjaman online di:
 
 Aplikasi: ${selectedApp}
 Nama: ${nama}
