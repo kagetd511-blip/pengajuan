@@ -65,9 +65,15 @@
         <div class="option" onclick="selectOption(this)"><img src="img/kredione.png"> Kredi One</div>
 
         <!-- LAINNYA -->
-        <div class="option" onclick="selectOption(this)">
-            ➕ Lain lain
-        </div>
+        <div class="option" onclick="showCustomInput(event)">
+    ➕ Lain lain
+</div>
+
+<!-- INPUT MUNCUL -->
+<div class="custom-input-box" id="customInputBox">
+    <input type="text" id="customApp" placeholder="Ketik aplikasi...">
+    <button onclick="setCustomApp()">OK</button>
+</div>
 
     </div>
 </div>
