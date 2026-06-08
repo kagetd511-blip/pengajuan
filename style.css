@@ -31,8 +31,8 @@ body {
     width: 100%;
     height: 85px; /* 🔥 gampang diatur */
     border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     overflow: hidden;
 }  
 
@@ -47,7 +47,7 @@ body {
 /* PROSES */
 .proses {
     width: 100%;
-    height: 155px; /* 🔥 gampang diatur */
+    height: 195px; /* 🔥 gampang diatur */
     border-radius: 10px;
     overflow: hidden;
 }  
