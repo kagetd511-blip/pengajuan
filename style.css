@@ -225,6 +225,54 @@ h3{
     display: block;
 }
 
+.custom-input-box{
+    display: none;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    gap: 8px;
+}
+
+.custom-input-box input{
+    width: 70%;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.custom-input-box button{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    background: #7c3aed;
+    color: white;
+    cursor: pointer;
+}
+
+.error {
+    border: 1px solid #ef4444 !important;
+    box-shadow: 0 0 10px rgba(239,68,68,0.6);
+}
+
+.custom-alert{
+    position: fixed;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg,#ef4444,#f97316);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    transition: 0.4s;
+    z-index: 9999;
+}
+
+.custom-alert.show{
+    top: 20px;
+}
+
 /* ANIMASI */
 @keyframes fadeUp {
     from{
