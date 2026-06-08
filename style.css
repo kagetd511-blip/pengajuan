@@ -181,7 +181,10 @@ h3{
     margin-top: 8px;
     border-radius: 14px;
     display: none;
-    overflow: hidden;
+
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     border: 1px solid rgba(124,58,237,0.3);
     box-shadow: 0 0 25px rgba(124,58,237,0.3);
@@ -197,6 +200,15 @@ h3{
 
     cursor: pointer;
     transition: 0.3s;
+}
+
+.options::-webkit-scrollbar{
+    width: 6px;
+}
+
+.options::-webkit-scrollbar-thumb{
+    background: #7c3aed;
+    border-radius: 10px;
 }
 
 .option img{
