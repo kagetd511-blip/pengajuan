@@ -15,7 +15,7 @@
    <img src="img/heroo.jpg">
 </div>
 
-<!-- FITUR -->
+<!-- STATS -->
 <div class="stats">
     <img src="img/statss-full.png">
 </div>
@@ -29,14 +29,24 @@
 <div class="form-box">
     <h3>Form Pengajuan</h3>
 
-    <div class="input-box">
-        <img src="img/icon-app.png">
-        <select id="app">
-            <option value="">Pilih Aplikasi</option>
-            <option>Shopee</option>
-            <option>Kredivo</option>
-            <option>Akulaku</option>
-        </select>
+    <!-- DROPDOWN KEREN -->
+    <div class="custom-select">
+        <div class="select-box" onclick="toggleSelect()">
+            <span id="selectedText">Pilih Aplikasi</span>
+            <div class="arrow">⌄</div>
+        </div>
+
+        <div class="options">
+            <div class="option" onclick="selectOption(this)">
+                <img src="img/shopee.png"> Shopee
+            </div>
+            <div class="option" onclick="selectOption(this)">
+                <img src="img/kredivo.png"> Kredivo
+            </div>
+            <div class="option" onclick="selectOption(this)">
+                <img src="img/akulaku.png"> Akulaku
+            </div>
+        </div>
     </div>
 
     <div class="input-box">
