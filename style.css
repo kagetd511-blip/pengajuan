@@ -14,14 +14,14 @@ body {
 /* HERO */
 .hero {
     width: 100%;
-    height: 355px; /* 🔥 gampang diatur */
+    height: 330px; /* 🔥 gampang diatur */
     overflow: hidden;
 }  
 
 .hero img{
   width: 100%;
   height: 100%;
-  object-fit:fill;
+  object-fit: cover;
   object-position: center;
   display: block;
 }
