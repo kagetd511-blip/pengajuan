@@ -327,12 +327,6 @@ async function kirimWA(){
     let canvas = await html2canvas(document.getElementById("areaSurat"), {scale:2});
     let imgData = canvas.toDataURL("image/png");
 
-    // download dulu
-    let link = document.createElement("a");
-    link.href = imgData;
-    link.download = "Surat.png";
-    link.click();
-
     let text = 
     "Pengajuan Pengembalian Pinjaman\n\n"+
     "Nama: "+nama.value+
