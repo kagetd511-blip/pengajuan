@@ -99,6 +99,7 @@ function kirimWA(){
         hp: document.getElementById("hp").value,
         jumlah: document.getElementById("jumlah").value,
         tenor: document.getElementById("tenor").value
+       logo: selected.getAttribute("data-logo")
     };
 
     // simpan ke localStorage
