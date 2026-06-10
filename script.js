@@ -93,22 +93,19 @@ function kirimWA(){
 
     if(!validateForm()) return;
 
-    let nama = document.getElementById("nama").value;
-    let hp = document.getElementById("hp").value;
+    let data = {
+        app: selectedApp,
+        nama: document.getElementById("nama").value,
+        hp: document.getElementById("hp").value,
+        jumlah: document.getElementById("jumlah").value,
+        tenor: document.getElementById("tenor").value
+    };
 
-    // ambil angka saja untuk WA
-    let jumlah = document.getElementById("jumlah").value.replace(/\D/g,"");
-    let tenor = document.getElementById("tenor").value;
+    // simpan ke localStorage
+    localStorage.setItem("dataSurat", JSON.stringify(data));
 
-    let pesan = `Halo, saya ingin pengajuan pengembalian/pembatalan pinjaman online di:
-
-Aplikasi: ${selectedApp}
-Nama: ${nama}
-No WA: ${hp}
-Total Pinjaman: Rp ${formatRupiah(jumlah)}
-Jangka Waktu: ${tenor}`;
-
-    window.open(`https://wa.me/6283125043684?text=${encodeURIComponent(pesan)}`);
+    // pindah halaman
+    window.location.href = "surat.html";
 }
 
 /* =========================
