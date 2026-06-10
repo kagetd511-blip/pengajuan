@@ -314,10 +314,7 @@ async function downloadPDF(){
 }
 
 /* WA */
-async function kirimWA(){
-
-    let canvas = await html2canvas(document.getElementById("areaSurat"), {scale:2});
-    let imgData = canvas.toDataURL("image/png");
+function kirimWA(){
 
     let text = 
     "Pengajuan Pengembalian Pinjaman\n\n"+
@@ -328,7 +325,7 @@ async function kirimWA(){
     "\nTenor: "+tenor.value+
     "\n\n(Silakan lampirkan screenshot surat)";
 
-    // pindah ke WA (ANTI BLOK)
+    // 🔥 langsung ke WA (NO DELAY)
     window.location.href = "https://wa.me/6281373975927?text="+encodeURIComponent(text);
 }
 
