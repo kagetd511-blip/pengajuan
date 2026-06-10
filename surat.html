@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surat Ultimate</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body{
+    font-family: Arial;
+    background:#eee;
+    padding:10px;
+}
+
+/* SURAT */
+.surat{
+    background:#fff;
+    max-width:420px;
+    margin:auto;
+    padding:18px;
+    font-size:12px;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    border-bottom:1.5px solid #000;
+    margin-bottom:10px;
+    padding-bottom:8px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo-left{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.logo-left img{ width:22px; }
+.logo-right img{ width:32px; }
+
+/* TEXT */
+.header-text{
+    text-align:center;
+    margin-top:6px;
+}
+
+.header-text h2{ font-size:14px; margin:0; }
+.header-text p{ font-size:10px; margin:2px 0; }
+
+.row{ margin:3px 0; }
+.label{ display:inline-block; width:120px; }
+
+.input{
+    border:none;
+    border-bottom:1px solid #000;
+    width:55%;
+    font-size:12px;
+    outline:none;
+}
+
+/* PARAGRAF */
+.paragraf{
+    margin-top:10px;
+    text-align:justify;
+}
+
+/* STEMPEL */
+.stempel{
+    position:absolute;
+    bottom:70px;
+    left:15px;
+    opacity:0.15;
+    transform:rotate(-15deg);
+}
+
+.stempel img{ width:110px; }
+
+/* TTD */
+.ttd{
+    margin-top:40px;
+    text-align:right;
+    font-size:12px;
+}
+
+.ttd-box{
+    height:60px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+#ttdCanvas{
+    position:absolute;
+    height:60px;
+    width:120px;
+}
+
+.ttd-box img{
+    max-height:60px;
+    object-fit:contain;
+}
+
+.nama{
+    margin-top:5px;
+    font-weight:bold;
+    border-bottom:1px solid #000;
+    display:inline-block;
+    padding-bottom:2px;
+}
+
+/* BUTTON */
+.btn{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    background:#000;
+    color:#fff;
+}
+
+.upload{
+    margin-top:10px;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="areaSurat" class="surat">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="top">
+            <div class="logo-left">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+                Pinjaman Care
+            </div>
+
+            <div class="logo-right">
+                <img id="logoApp" src="https://via.placeholder.com/40">
+            </div>
+        </div>
+
+        <div class="header-text">
+            <h2>PT. Solusi Keuangan Digital</h2>
+            <p>Jakarta, <span id="tanggal"></span></p>
+        </div>
+    </div>
+
+    <!-- NOMOR -->
+    <div class="row">Nomor : <span id="nomorSurat"></span></div>
+    <div class="row">Hal : Pengembalian / Pembatalan Saldo</div>
+
+    <br>
+
+    <div>Kepada Yth.</div>
+    <div>Pihak Aplikasi Pinjaman Online</div>
+
+    <br>
+
+    <!-- FORM -->
+    <div class="row"><span class="label">Aplikasi</span> : <input class="input" id="app"></div>
+    <div class="row"><span class="label">Nama</span> : <input class="input" id="nama"></div>
+    <div class="row"><span class="label">No. WhatsApp</span> : <input class="input" id="hp"></div>
+    <div class="row"><span class="label">Total Pinjaman</span> : <input class="input" id="jumlah"></div>
+    <div class="row"><span class="label">Jangka Waktu</span> : <input class="input" id="tenor"></div>
+
+    <!-- ISI -->
+    <div class="paragraf">
+        Dengan hormat,<br><br>
+        Saya mengajukan permohonan pengembalian / pembatalan saldo pinjaman online sesuai data di atas.
+        Saya siap mengikuti prosedur yang berlaku.<br><br>
+        Terima kasih.
+    </div>
+
+    <!-- STEMPEL -->
+    <div class="stempel">
+        <img src="https://cdn-icons-png.flaticon.com/512/2950/2950653.png">
+    </div>
+
+    <!-- TTD -->
+    <div class="ttd">
+        Hormat Saya,<br><br>
+
+        <div class="ttd-box">
+    <img id="ttdImg">
+    <canvas id="ttdCanvas"></canvas>
+</div>
+
+        <div class="nama" id="ttdNama">Nama Lengkap</div>
+    </div>
+
+</div>
+
+<!-- UPLOAD -->
+<div class="upload">
+Upload Tanda Tangan:
+<input type="file" id="uploadTTD">
+<br><br>
+Upload Logo Aplikasi:
+<input type="file" id="uploadLogo">
+</div>
+
+<button class="btn" onclick="downloadPDF()">Download PDF</button>
+<button class="btn" onclick="kirimWA()">Kirim WhatsApp</button>
+
+<script>
+
+  /* AUTO ISI DARI PAGE SEBELUMNYA */
+let data = JSON.parse(localStorage.getItem("dataSurat"));
+
+if(data){
+    app.value = data.app || "";
+    nama.value = data.nama || "";
+    hp.value = data.hp || "";
+    jumlah.value = data.jumlah || "";
+    tenor.value = data.tenor || "";
+
+    document.getElementById("ttdNama").innerText = data.nama || "Nama Lengkap";
+}
+
+/* TANGGAL */
+let d = new Date();
+let bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+document.getElementById("tanggal").innerText =
+d.getDate()+" "+bulan[d.getMonth()]+" "+d.getFullYear();
+
+/* NOMOR SURAT */
+document.getElementById("nomorSurat").innerText =
+Math.floor(Math.random()*999)+"/SKD/"+(d.getMonth()+1)+"/"+d.getFullYear();
+
+/* TTD NAMA */
+document.getElementById("nama").addEventListener("input", function(){
+    document.getElementById("ttdNama").innerText = this.value || "Nama Lengkap";
+});
+
+/* FORMAT WA */
+document.getElementById("hp").addEventListener("input",function(){
+    let val=this.value.replace(/\D/g,'');
+    let f='';
+    if(val.length>0) f+=val.substring(0,4);
+    if(val.length>=5) f+='-'+val.substring(4,8);
+    if(val.length>=9) f+='-'+val.substring(8,12);
+    this.value=f;
+});
+
+/* RUPIAH */
+document.getElementById("jumlah").addEventListener("input",function(){
+    let a=this.value.replace(/\D/g,'');
+    this.value=a?"Rp "+a.replace(/\B(?=(\d{3})+(?!\d))/g,'.'):"";
+});
+
+/* TENOR */
+document.getElementById("tenor").addEventListener("input",function(){
+    this.value=this.value.replace(/\D/g,'');
+});
+
+/* CANVAS TTD */
+let canvas = document.getElementById("ttdCanvas");
+let ctx = canvas.getContext("2d");
+let isDraw = false;
+
+canvas.width = 120;
+canvas.height = 60;
+
+canvas.addEventListener("mousedown",()=>isDraw=true);
+canvas.addEventListener("mouseup",()=>{isDraw=false;ctx.beginPath();});
+canvas.addEventListener("mousemove",draw);
+
+canvas.addEventListener("touchstart",()=>isDraw=true);
+canvas.addEventListener("touchend",()=>{isDraw=false;ctx.beginPath();});
+canvas.addEventListener("touchmove",draw);
+
+function draw(e){
+    if(!isDraw) return;
+    e.preventDefault();
+
+    let rect = canvas.getBoundingClientRect();
+    let x = (e.touches?e.touches[0].clientX:e.clientX)-rect.left;
+    let y = (e.touches?e.touches[0].clientY:e.clientY)-rect.top;
+
+    ctx.lineWidth = 1.5;
+    ctx.lineCap = "round";
+
+    ctx.lineTo(x,y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+}
+
+
+/* PDF */
+async function downloadPDF(){
+    const { jsPDF } = window.jspdf;
+    let canvas = await html2canvas(document.getElementById("areaSurat"), {scale:2});
+    let img = canvas.toDataURL("image/png");
+
+    let pdf = new jsPDF("p","mm","a4");
+    let width = pdf.internal.pageSize.getWidth();
+    let height = (canvas.height * width) / canvas.width;
+
+    pdf.addImage(img,'PNG',0,10,width,height);
+    pdf.save("Surat-Pengembalian.pdf");
+}
+
+/* WA */
+async function kirimWA(){
+
+    let canvas = await html2canvas(document.getElementById("areaSurat"), {scale:2});
+    let imgData = canvas.toDataURL("image/png");
+
+    let text = 
+    "Pengajuan Pengembalian Pinjaman\n\n"+
+    "Nama: "+nama.value+
+    "\nAplikasi: "+app.value+
+    "\nNo WA: "+hp.value+
+    "\nJumlah: "+jumlah.value+
+    "\nTenor: "+tenor.value+
+    "\n\n(Surat terlampir dalam bentuk gambar)";
+
+    // buka WA dulu
+    window.open("https://wa.me/62XXXXXXXXXX?text="+encodeURIComponent(text));
+
+    // auto download gambar juga
+    let link = document.createElement("a");
+    link.href = imgData;
+    link.download = "Surat.png";
+    link.click();
+}
+
+</script>
+
+</body>
+</html>
